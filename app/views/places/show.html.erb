@@ -54,12 +54,23 @@
   </div>
 </div>
 
+<h1>Photos</h1>
+
+<% @place.photos.each do |photo| %>
+  <div>
+    <blockquote>
+      <b><% photo.message %></b>
+      <small><%= photo.user.email %></small>
+    </blockquote>
+  </div>
+<% end %>
+
 <div class="clear"></div>
   <%= simple_form_for @photo, url: 'place_photos_path(@place)' do |f| %>
   <%= f.input :message %>
   <%= f.submit "Add a Caption", class: 'btn btn-primary' %>
 <% end %>
-      
+
 <div class="clear"></div>
 
 <!-- Modal -->
@@ -110,3 +121,6 @@
     </div>
   <% end %>
 </div>
+
+
+
